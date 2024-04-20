@@ -31,21 +31,21 @@ defineProps({
         <div class="text-white font-semibold hidden text-xl top-navbar w-full lg:inline-flex 2xl:inline-flex xl:inline-flex lg:flex-grow lg:w-auto" id="navigation">
 
             <div class="lg:inline-flex lg:flex-row xl:mr-auto 2xl:mr-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto">
-                <a href="#gallery" class="lg:inline-flex lg:w-auto w-full px-3 py-2 text-xl rounded items-center justify-center ">
-                  <span>Новости</span>
-                </a>
-                <a href="#goods" class="lg:inline-flex lg:w-auto w-full px-3 py-2 text-xl rounded items-center justify-center ">
-                  <span>Турниры</span>
-                </a>
-                <a :href="route('index')" class="lg:inline-flex lg:w-auto w-full px-3 py-2 text-xl rounded items-center justify-center ">
-                  <span>Рейтинг</span>
-                </a>
-                <a :href="route('create')" class="lg:inline-flex lg:w-auto w-full px-3 py-2 text-xl rounded items-center justify-center ">
-                    <span>Регистрация команды</span>
-                </a>
-                <a :href="route('player.create')" class="lg:inline-flex lg:w-auto w-full px-3 py-2 text-xl rounded items-center justify-center ">
-                    <span>Регистрация игрока</span>
-                </a>
+              <a href="#gallery" class="lg:inline-flex lg:w-auto w-full px-3 py-2 text-lg rounded items-center justify-center ">
+                <span>Новости</span>
+              </a>
+              <a href="#goods" class="lg:inline-flex lg:w-auto w-full px-3 py-2 text-lg rounded items-center justify-center ">
+                <span>Турниры</span>
+              </a>
+              <a :href="route('index')" class="lg:inline-flex lg:w-auto w-full px-3 py-2 text-lg rounded items-center justify-center ">
+                <span>Рейтинг</span>
+              </a>
+              <a :href="route('create')" class="lg:inline-flex lg:w-auto w-full px-3 py-2 text-lg rounded items-center justify-center ">
+                <span>Регистрация команды</span>
+              </a>
+              <a :href="route('player.create')" class="lg:inline-flex lg:w-auto w-full px-3 py-2 text-lg rounded items-center justify-center ">
+                <span>Регистрация игрока</span>
+              </a>
 
             </div>
         </div>
