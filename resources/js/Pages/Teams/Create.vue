@@ -26,7 +26,9 @@ const handleFileChange = (event) => {
 </script>
 
 <template>
-  <ALayout v-if="authr != null">
+    <div class="h-4"></div>
+
+    <ALayout v-if="authr != null">
 
     <div class="w-full h-full">
           <div class="w-full  px-[5%] xl:px-[20%] 2xl:px-[20%] mt-16">
@@ -34,7 +36,7 @@ const handleFileChange = (event) => {
                   <div class = "w-full xl:px-[30%] 2xl:px-[30%] text-center px-[15%]">
                       <label class="text-xl font-semibold">
                           Название команды
-                          <input class="rounded-xl bg-gray-500 border-2 border-gray-600 w-full mt-2 text-left focus:outline-gray-300 focus:border-none" type="text" v-model="form.name">
+                          <input class="text-white rounded-xl bg-gray-500 border-2 border-gray-600 w-full mt-2 text-left" type="text" v-model="form.name">
                       </label>
                   </div>
                   <div class = "mt-6 w-full xl:px-[30%] 2xl:px-[30%] text-center px-[15%]">
@@ -62,7 +64,7 @@ const handleFileChange = (event) => {
           <div class = "w-full xl:px-[30%] 2xl:px-[30%] text-center px-[15%]">
             <label class="text-xl font-semibold">
               Название команды
-              <input class="rounded-xl bg-gray-500 border-2 border-gray-600 w-full mt-2 text-left focus:outline-gray-300 focus:border-none" type="text" v-model="form.name">
+              <input class="text-white rounded-xl bg-gray-500 border-2 border-gray-600 w-full mt-2 text-left" type="text" v-model="form.name">
             </label>
           </div>
           <div class = "mt-6 w-full xl:px-[30%] 2xl:px-[30%] text-center px-[15%]">
@@ -84,9 +86,5 @@ const handleFileChange = (event) => {
 </template>
 
 <style>
-:active, :hover, :focus {
-    outline: 0;
-    outline-offset: 0;
-    border:none;
-}
+
 </style>

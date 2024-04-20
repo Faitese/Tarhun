@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Player;
 use App\Models\teams;
 use Ramsey\Uuid\Type\Integer;
 use Request;
@@ -19,7 +20,8 @@ class TeamsController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $teams1 = teams::orderBy('points')->get();
+        $players = Player::all();
+        $teams1 = teams::where('verified', 1)->orderBy('points')->get();
         $teams2 = $teams1->map(function ($team) {
             return [
                 'id' => $team->id,
@@ -28,11 +30,18 @@ class TeamsController extends Controller
                 'logo_path' => asset('/storage/' . $team->logo_path),
                 'verified' => $team->verified,
 
-
             ];
         })->toArray();
         $teams = array_reverse($teams2);
-
+        foreach ($players as $index => $player) {
+            foreach ($teams as $index1 => $team) {
+                if($player['team_id'] == $team['id']) {
+                    $teams[$index1]['players'][$index]['id'] = $player['id'];
+                    $teams[$index1]['players'][$index]['nickname'] = $player['nickname'];
+                    $teams[$index1]['players'][$index]['photo'] = "storage/" . $player['photo'];
+                }
+            }
+        }
 //        dd($teams);
         return Inertia::render('Teams/Index', ['teams' => $teams, 'authr' => $user]);
 
@@ -43,7 +52,8 @@ class TeamsController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Teams/Create', []);
+        $user = Auth::user();
+        return Inertia::render('Teams/Create', ['authr' => $user]);
     }
 
     /**

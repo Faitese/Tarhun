@@ -20,6 +20,8 @@ function update() {
 </script>
 
 <template>
+  <div class="h-4"></div>
+
   <ALayout v-if="authr != null">
 
   <div class="w-full h-full">
@@ -28,13 +30,13 @@ function update() {
                 <div class = "w-full xl:px-[30%] 2xl:px-[30%] text-center px-[15%]">
                     <label class="text-xl font-semibold">
                         Название команды
-                        <input class="rounded-xl bg-gray-500 border-2 border-gray-600 w-full mt-2 text-left focus:outline-gray-300 focus:border-none" type="text" v-model="form.name">
+                        <input class="rounded-xl bg-gray-500 border-2 border-gray-600 w-full mt-2 text-left" type="text" v-model="form.name">
                     </label>
                 </div>
                 <div class = "mt-8 w-full xl:px-[30%] 2xl:px-[30%] text-center px-[15%]">
                   <label class="text-xl font-semibold">
                     Количество очков
-                    <input class="rounded-xl bg-gray-500 border-2 border-gray-600 w-full mt-2 text-left focus:outline-gray-300 focus:border-none" type="number" v-model="form.points">
+                    <input class="rounded-xl bg-gray-500 border-2 border-gray-600 w-full mt-2 text-left" type="number" v-model="form.points">
                   </label>
                 </div>
                 <div class="w-full mt-8 text-center">
@@ -54,13 +56,13 @@ function update() {
           <div class = "w-full xl:px-[30%] 2xl:px-[30%] text-center px-[15%]">
             <label class="text-xl font-semibold">
               Название команды
-              <input class="rounded-xl bg-gray-500 border-2 border-gray-600 w-full mt-2 text-left focus:outline-gray-300 focus:border-none" type="text" v-model="form.name">
+              <input class="rounded-xl bg-gray-500 border-2 border-gray-600 w-full mt-2 text-left " type="text" v-model="form.name">
             </label>
           </div>
           <div class = "mt-8 w-full xl:px-[30%] 2xl:px-[30%] text-center px-[15%]">
             <label class="text-xl font-semibold">
               Количество очков
-              <input class="rounded-xl bg-gray-500 border-2 border-gray-600 w-full mt-2 text-left focus:outline-gray-300 focus:border-none" type="number" v-model="form.points">
+              <input class="rounded-xl bg-gray-500 border-2 border-gray-600 w-full mt-2 text-left " type="number" v-model="form.points">
             </label>
           </div>
           <div class="w-full mt-8 text-center">

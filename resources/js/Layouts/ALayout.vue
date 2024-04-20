@@ -43,9 +43,11 @@ const logout = () => {
                 <a :href="route('index')" class="lg:inline-flex lg:w-auto w-full px-3 py-2 text-xl rounded items-center justify-center ">
                     <span>Рейтинг</span>
                 </a>
-
                 <a :href="route('create')" class="lg:inline-flex lg:w-auto w-full px-3 py-2 text-xl rounded items-center justify-center ">
-                    <span>Подать заявку</span>
+                    <span>Регистрация команды</span>
+                </a>
+                <a :href="route('player.create')" class="lg:inline-flex lg:w-auto w-full px-3 py-2 text-xl rounded items-center justify-center ">
+                    <span>Регистрация игрока</span>
                 </a>
                 <div class="ms-3 rounded-xl">
                     <Dropdown align="left" width="48">
@@ -78,18 +80,6 @@ const logout = () => {
                     </Dropdown>
                 </div>
 
-                <!-- <a href="#programm" class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded items-center justify-center ">
-                  <span>Программа курса</span>
-                </a>
-                <a href="#result" class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded items-center justify-center ">
-                  <span>Результат</span>
-                </a>
-                <a href="#beforeAfter" class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded items-center justify-center ">
-                    <span>До/после</span>
-                </a>
-                <a href="#reviews" class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded items-center justify-center ">
-                  <span>Отзывы</span>
-                </a> -->
             </div>
         </div>
 

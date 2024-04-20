@@ -4,7 +4,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\TeamsController;
-
+use \App\Http\Controllers\PlayerController;
 // Route::get('/', function () {
 //     return Inertia::render('Welcome', [
 //         'canLogin' => Route::has('login'),
@@ -14,7 +14,14 @@ use App\Http\Controllers\TeamsController;
 //     ]);
 // });
 
-//Route::Resource('/', TeamsController::class);
+
+Route::get('/player', [PlayerController::class, 'index'])->name('player.index');
+Route::get('/player/create', [PlayerController::class, 'create'])->name('player.create');
+Route::get('/player/tickets', [PlayerController::class, 'tickets'])->name('player.tickets');
+Route::put('/player/{player}', [PlayerController::class, 'verify'])->name('player.verify');
+Route::post('/player', [PlayerController::class, 'store'])->name('player.store');
+
+
 
 Route::get('/', [TeamsController::class, 'index'])->name('index');
 Route::get('/tickets', [TeamsController::class, 'tickets'])->name('tickets');
