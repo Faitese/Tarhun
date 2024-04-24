@@ -19,6 +19,13 @@ function destroy(id) {
         router.delete(route('destroy', id))
     }
 }
+
+function Pdestroy(id) {
+    if (confirm('ВЫ УВЕРЕНЫ????????????????')) {
+        // console.log(id);
+        router.delete(route('player.destroy', id))
+    }
+}
 // if (props.authr != null) {
 //     defineOptions({ layout: Layout })
 //
@@ -59,25 +66,29 @@ function destroy(id) {
                 </template>
                 <template #content>
                   <div class="w-full h-full flex text-white text-center">
-                    <div class="w-1/6 mx-1 xl:mx-4 p-2 hover:border-2 rounded-md hover:border-gray-400" v-for="player in team.players">
-                        <a :href="route('index')">
-                          <div class="xl:h-4/6 h-3/6" v-if="player.photo !== 'storage/'"><img class="w-full" :src="player.photo"></div>
-                          <div class="xl:h-4/6 h-3/6" v-else><img class="w-full" src='/storage/photos/noavatar.png'></div>
-                          <div class="xl:h-2/6 h-3/6 xl:mt-4 xl:text-lg text-[12px]">{{player.nickname}}<br>
-                            <div class="flex w-full ">
-                              <div class="w-1/3 hidden xl:block"></div>
-                              <div class="w-1/3 flex">
-                                <a :href="route('edit', team['id'])" class="mt-2 xl:mr-2 mr-1 p-1  bg-gray-700 rounded-xl text-[0.7rem] xl:text-[1rem]">
-                                  <i class="fa-solid fa-pen"></i>
-                                </a>
-                                <a @click="destroy(team['id'])" class="mt-2 xl:mr-2 p-1 bg-red-700 rounded-xl text-[0.7rem] xl:text-[1rem]">
-                                  <i class="fa-solid fa-trash"></i>
-                                </a>
+                      <div class=" flex text-white text-center">
+                          <template   v-for="player in team.players">
+                            <div class="w-1/6 mx-1 xl:mx-4 p-2 hover:border-2 rounded-md hover:border-gray-400" v-if="player.verified == 1">
+
+                              <div class="xl:h-4/6 h-3/6" v-if="player.photo !== 'storage/'"><a :href="route('index')" ><img class="w-full" :src="player.photo"></a></div>
+                              <div class="xl:h-4/6 h-3/6" v-else><a :href="route('index')" ><img class="w-full" src='/storage/photos/noavatar.png'></a></div>
+                              <div class="xl:h-2/6 h-3/6 xl:mt-4 xl:text-lg text-[12px]">{{player.nickname}}<br>
+                                <div class="flex w-full ">
+                                  <div class="w-1/3 hidden xl:block"></div>
+                                  <div class="w-1/3 flex">
+                                    <a :href="route('player.edit', player['id'])" class="mt-2 xl:mr-2 mr-1 p-1  bg-gray-700 rounded-xl text-[0.7rem] xl:text-[1rem]">
+                                      <i class="fa-solid fa-pen"></i>
+                                    </a>
+                                    <button @click="Pdestroy(player['id'])" class="mt-2 xl:mr-2 p-1 bg-red-700 rounded-xl text-[0.7rem] xl:text-[1rem]">
+                                      <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                  </div>
+                                </div>
                               </div>
+
                             </div>
-                          </div>
-                        </a>
-                    </div>
+                          </template>
+                      </div>
                   </div>
                 </template>
               </PlayerDropdown>
@@ -87,16 +98,6 @@ function destroy(id) {
 
     </ALayout>
     <Layout v-else>
-      <div class="w-full text-center mt-24 flex">
-        <div class=" w-full mx-auto text-center">
-          <a :href="route('tickets')" class="text-white p-2 mr-2 bg-gray-600 text-xl rounded-xl">
-            Прием команд
-          </a>
-          <a :href="route('player.index')" class="text-white p-2 bg-gray-600 text-xl rounded-xl">
-            Прием игроков
-          </a>
-        </div>
-      </div>
       <div class="w-full mt-24  px-[5%] xl:px-[20%] 2xl:px-[20%] mt-16">
         <div v-for="(team, index) in teams"  class="w-full ">
           <PlayerDropdown>

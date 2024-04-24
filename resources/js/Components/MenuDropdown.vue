@@ -12,7 +12,7 @@ const props = defineProps({
     },
     contentClasses: {
         type: Array,
-        default: () => ['py-1', 'bg-gray-200'],
+        default: () => ['py-1', 'bg-gray-700'],
     },
 });
 
@@ -47,13 +47,12 @@ const alignmentClasses = computed(() => {
 </script>
 
 <template>
-    <div class="relative rounded-lg">
+    <div class="relative rounded-lg bg-gray-700">
         <div @click="open = ! open">
             <slot name="trigger" />
         </div>
 
         <!-- Full Screen Dropdown Overlay -->
-        <div v-show="open" class="fixed inset-0 z-40" @click="open = false" />
 
         <transition
             enter-active-class="transition ease-out duration-200"
@@ -65,12 +64,11 @@ const alignmentClasses = computed(() => {
         >
             <div
                 v-show="open"
-                class="absolute z-50 mt-2 rounded-md shadow-lg"
+                class=" z-50 w-full rounded-md"
                 :class="[widthClass, alignmentClasses]"
                 style="display: none;"
-                @click="open = false"
             >
-                <div class="rounded-md ring-1 ring-black ring-opacity-5" :class="contentClasses">
+                <div class="rounded-md ring-1 ring-black ring-opacity-5 w-auto h-auto" :class="contentClasses">
                     <slot name="content" />
                 </div>
             </div>

@@ -12,7 +12,7 @@ const props = defineProps({ players: Array, authr: Object})
 
 function destroy(id) {
     if (confirm('ВЫ УВЕРЕНЫ????????????????')) {
-        router.delete(route('destroy', id))
+        router.delete(route('player.destroy', id))
     }
 }
 function verify(id) {
@@ -43,7 +43,7 @@ function verify(id) {
                         <a @click="destroy(player['id'])" class="p-2 mr-2 bg-red-700 rounded-xl">
                             <i class="fa-solid fa-xmark"></i>
                         </a>
-                        <a :href="route('edit', player['id'])" class="p-2 mr-2 bg-gray-700 rounded-xl">
+                        <a :href="route('player.edit', player['id'])" class="p-2 mr-2 bg-gray-700 rounded-xl">
                             <i class="fa-solid fa-pen"></i>
                         </a>
 

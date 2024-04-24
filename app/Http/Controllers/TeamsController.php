@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Player;
 use App\Models\teams;
+use Illuminate\Support\Facades\Storage;
 use Ramsey\Uuid\Type\Integer;
 use Request;
 use Illuminate\Support\Facades\Redirect;
@@ -38,6 +39,7 @@ class TeamsController extends Controller
                 if($player['team_id'] == $team['id']) {
                     $teams[$index1]['players'][$index]['id'] = $player['id'];
                     $teams[$index1]['players'][$index]['nickname'] = $player['nickname'];
+                    $teams[$index1]['players'][$index]['verified'] = $player['verified'];
                     $teams[$index1]['players'][$index]['photo'] = "storage/" . $player['photo'];
                 }
             }
@@ -110,6 +112,10 @@ class TeamsController extends Controller
      */
     public function destroy(teams $team)
     {
+        if ($team->logo_path != null) {
+            Storage::delete('public/' . $team->logo_path);
+        }
+//        dd($team);
 //        dd($team);
 //        dd(teams::where('id', $id));
 //        $teams->where()->delete();

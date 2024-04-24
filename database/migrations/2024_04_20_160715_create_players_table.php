@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('team_id');
             $table->foreign('team_id')
-                ->references('id')->on('teams');
+                ->references('id')->on('teams')->onDelete('cascade');
             $table->string('nickname');
             $table->string('fi')->nullable();
             $table->string('photo')->nullable();

@@ -13,14 +13,17 @@ use \App\Http\Controllers\PlayerController;
 //         'phpVersion' => PHP_VERSION,
 //     ]);
 // });
-
+Route::get('/news', [\App\Http\Controllers\NewsController::class, 'index'])->name('news.index');
+Route::get('/news/create', [\App\Http\Controllers\NewsController::class, 'create'])->name('news.create');
 
 Route::get('/player', [PlayerController::class, 'index'])->name('player.index');
 Route::get('/player/create', [PlayerController::class, 'create'])->name('player.create');
-Route::get('/player/tickets', [PlayerController::class, 'tickets'])->name('player.tickets');
+//Route::get('/player/tickets', [PlayerController::class, 'tickets'])->name('player.tickets');
 Route::put('/player/{player}', [PlayerController::class, 'verify'])->name('player.verify');
 Route::post('/player', [PlayerController::class, 'store'])->name('player.store');
-
+Route::delete('/player/{player}', [PlayerController::class, 'destroy'])->name('player.destroy');
+Route::get('/player/{player}/edit', [PlayerController::class, 'edit'])->name('player.edit');
+Route::put('/player/update/{team}', [PlayerController::class, 'update'])->name('player.update');
 
 
 Route::get('/', [TeamsController::class, 'index'])->name('index');

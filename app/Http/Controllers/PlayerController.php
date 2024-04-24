@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Request;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Storage;
 
 class PlayerController extends Controller
 {
@@ -102,22 +103,45 @@ class PlayerController extends Controller
      */
     public function edit(Player $player)
     {
-        //
+        $user = Auth::user();
+        $teams = teams::all();
+//        $player = $player->toArray();
+//        dd($player);
+        return Inertia::render('Players/Edit', ['player' => $player, 'authr' => $user, 'teams' => $teams]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Player $player)
+    public function update(Request $request)
     {
-        //
-    }
+//        dd(Request::input('points'));
+//        $team = teams::where('id', $team);
+//        dd($team);
+//        dd(Request::input('id'));
+        $player = Player::where('id', Request::input('id'));
 
+//        dd($player);
+        $player->update([
+            'nickname' => Request::input('nickname'),
+            'team_id' => Request::input('team_id'),
+            'fi' => Request::input('fi'),
+
+        ]);
+        return redirect()->route('index');
+
+    }
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Player $player)
     {
-        //
+//        dd($player);
+        if ($player->photo != null) {
+            Storage::delete('public/' . $player->photo);
+        }
+        $player->delete();
+
+        Return redirect()->back();
     }
 }
