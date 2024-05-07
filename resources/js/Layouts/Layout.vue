@@ -39,7 +39,7 @@ const logout = () => {
                 <a :href="route('news.index')" class="lg:inline-flex lg:w-auto w-full px-3 py-2 text-lg rounded items-center justify-center ">
                     <span>Новости</span>
                 </a>
-                <a href="#goods" class="lg:inline-flex lg:w-auto w-full px-3 py-2 text-lg rounded items-center justify-center ">
+                <a :href="route('tour.index')" class="lg:inline-flex lg:w-auto w-full px-3 py-2 text-lg rounded items-center justify-center ">
                     <span>Турниры</span>
                 </a>
                 <a :href="route('index')" class="lg:inline-flex lg:w-auto w-full px-3 py-2 text-lg rounded items-center justify-center ">
@@ -74,7 +74,7 @@ const logout = () => {
                     <a :href="route('news.index')" class="lg:inline-flex lg:w-auto w-full px-3 py-2 text-lg rounded items-center justify-center ">
                         <span>Новости</span>
                     </a><br>
-                    <a href="#goods" class="lg:inline-flex lg:w-auto w-full px-3 py-2 text-lg rounded items-center justify-center ">
+                    <a :href="route('tour.index')" class="lg:inline-flex lg:w-auto w-full px-3 py-2 text-lg rounded items-center justify-center ">
                         <span>Турниры</span>
                     </a><br>
                     <a :href="route('index')" class="lg:inline-flex lg:w-auto w-full px-3 py-2 text-lg rounded items-center justify-center ">

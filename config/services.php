@@ -31,4 +31,9 @@ return [
         ],
     ],
 
+    'vk' => [
+        'url' => env('VK_API_URL', 'https://api.vk.com/method/'),
+        'token' => env('VK_API_SERVICE_TOKEN'),
+        'version' => env('VK_API_VERSION', '5.199')
+    ]
 ];

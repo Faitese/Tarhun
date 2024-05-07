@@ -16,7 +16,7 @@ function store() {
 
 function destroy(id) {
     if (confirm('ВЫ УВЕРЕНЫ????????????????')) {
-        router.delete(route('destroy', id))
+        router.delete(route('news.destroy', id))
     }
 }
 
@@ -113,11 +113,13 @@ function Pdestroy(id) {
             <template #content>
               <div class="w-full h-full flex text-white text-center">
                 <div class="w-1/6 mx-1 xl:mx-4 p-2 hover:border-2 rounded-md hover:border-gray-400" v-for="player in team.players">
-                  <a :href="route('index')">
-                    <div class="h-4/5" v-if="player.photo !== 'storage/'"><img class="w-full" :src="player.photo"></div>
-                    <div class="h-4/5" v-else><img class="w-full" src='/storage/photos/noavatar.png'></div>
-                    <div class=" mt-2 xl:text-lg text-[12px]">{{player.nickname}}</div>
-                  </a>
+                  <template v-if="player.verified != 0">
+                    <a :href="route('index')">
+                        <div class="h-4/5" v-if="player.photo !== 'storage/'"><img class="w-full" :src="player.photo"></div>
+                        <div class="h-4/5" v-else><img class="w-full" src='/storage/photos/noavatar.png'></div>
+                        <div class=" mt-2 xl:text-lg text-[12px]">{{player.nickname}}</div>
+                    </a>
+                  </template>
                 </div>
               </div>
             </template>

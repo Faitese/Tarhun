@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\TeamsController;
 use \App\Http\Controllers\PlayerController;
+use \App\Http\Controllers\NewsController;
+use \App\Http\Controllers\TourController;
+
 // Route::get('/', function () {
 //     return Inertia::render('Welcome', [
 //         'canLogin' => Route::has('login'),
@@ -13,8 +16,20 @@ use \App\Http\Controllers\PlayerController;
 //         'phpVersion' => PHP_VERSION,
 //     ]);
 // });
-Route::get('/news', [\App\Http\Controllers\NewsController::class, 'index'])->name('news.index');
-Route::get('/news/create', [\App\Http\Controllers\NewsController::class, 'create'])->name('news.create');
+Route::get('/news', [NewsController::class, 'index'])->name('news.index');
+Route::get('/news/create', [NewsController::class, 'create'])->name('news.create');
+Route::get('/news/{new}/show', [NewsController::class, 'show'])->name('news.show');
+Route::get('/news/{new}/edit', [NewsController::class, 'edit'])->name('news.edit');
+Route::put('/news/update/{new}', [NewsController::class, 'update'])->name('news.update');
+Route::post('/news', [NewsController::class, 'store'])->name('news.store');
+
+Route::get('/Tour', [TourController::class, 'index'])->name('tour.index');
+Route::get('/Tour/create', [TourController::class, 'create'])->name('tour.create');
+Route::get('/Tour/{new}/show', [TourController::class, 'show'])->name('tour.show');
+Route::get('/Tour/{new}/edit', [TourController::class, 'edit'])->name('tour.edit');
+Route::put('/Tour/update/{new}', [TourController::class, 'update'])->name('tour.update');
+Route::post('/Tour', [TourController::class, 'store'])->name('tour.store');
+
 
 Route::get('/player', [PlayerController::class, 'index'])->name('player.index');
 Route::get('/player/create', [PlayerController::class, 'create'])->name('player.create');

@@ -11,4 +11,8 @@ class teams extends Model
 
     protected $fillable = ['name', 'points', 'logo_path'];
     protected $guarded = [];
+
+    public function tours() {
+        return $this->belongsToMany('App\Models\Tour', 'team_tour');
+    }
 }
