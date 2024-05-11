@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('players', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('team_id');
-            $table->foreign('team_id')
+            $table->unsignedBigInteger('teams_id');
+            $table->foreign('teams_id')
                 ->references('id')->on('teams')->onDelete('cascade');
             $table->string('nickname');
             $table->string('fi')->nullable();

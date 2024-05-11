@@ -12,6 +12,9 @@ class teams extends Model
     protected $fillable = ['name', 'points', 'logo_path'];
     protected $guarded = [];
 
+    public function players() {
+        return $this->hasMany('App\Models\Player');
+    }
     public function tours() {
         return $this->belongsToMany('App\Models\Tour', 'team_tour');
     }

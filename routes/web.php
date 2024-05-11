@@ -22,6 +22,7 @@ Route::get('/news/{new}/show', [NewsController::class, 'show'])->name('news.show
 Route::get('/news/{new}/edit', [NewsController::class, 'edit'])->name('news.edit');
 Route::put('/news/update/{new}', [NewsController::class, 'update'])->name('news.update');
 Route::post('/news', [NewsController::class, 'store'])->name('news.store');
+Route::delete('/news/{new}', [NewsController::class, 'destroy'])->name('news.destroy');
 
 Route::get('/Tour', [TourController::class, 'index'])->name('tour.index');
 Route::get('/Tour/create', [TourController::class, 'create'])->name('tour.create');
@@ -29,6 +30,7 @@ Route::get('/Tour/{new}/show', [TourController::class, 'show'])->name('tour.show
 Route::get('/Tour/{new}/edit', [TourController::class, 'edit'])->name('tour.edit');
 Route::put('/Tour/update/{new}', [TourController::class, 'update'])->name('tour.update');
 Route::post('/Tour', [TourController::class, 'store'])->name('tour.store');
+Route::delete('/Tour/{Tour}', [TourController::class, 'destroy'])->name('tour.destroy');
 
 
 Route::get('/player', [PlayerController::class, 'index'])->name('player.index');
