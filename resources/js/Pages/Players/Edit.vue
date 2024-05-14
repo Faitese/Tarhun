@@ -10,7 +10,7 @@ import Layout from "@/Layouts/Layout.vue";
 const form = useForm({
     id: props.player.id,
     nickname: props.player.nickname,
-    team_id: props.player.team_id,
+    team_id: props.player.teams_id,
     fi: props.player.fi,
     verified: props.player.verified
 })

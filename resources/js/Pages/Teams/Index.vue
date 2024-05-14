@@ -52,7 +52,7 @@ function Pdestroy(id) {
                   <div v-if="team['verified'] == 1" class="rounded-xl bg-gray-500 mt-2 w-full flex flex text-white px-4 py-2">
                       <div class="w-4/12 xl:w-2/12 2xl:w-2/12 flex"><span class="w-1/3 text-3xl my-auto">#{{index + 1}}</span><img class="mx-2 w-2/3 xl:w-16 2xl:w-16 xl:h-16 2xl:h-16 h-full" :src="team.logo_path"></div>
                       <div class="w-6/12 xl:w-5/6 2xl:w-5/6 my-auto">
-                          <span class="font-semibold pl-2">{{team['name']}}</span> <span class="font-thin">({{team['points']}} points)</span>
+                          <p class="ml-4"><span class="font-semibold ">{{team['name']}}</span> <span class="font-thin">({{team['points']}} points)</span></p>
                       </div>
                       <div class="right-0 w-2/12 xl:w-1/6 2xl:w-1/6 my-auto flex">
                           <a :href="route('edit', team['id'])" class="p-2 mr-2 bg-gray-700 rounded-xl">
@@ -105,7 +105,7 @@ function Pdestroy(id) {
               <div v-if="team['verified'] == 1" class="rounded-xl bg-gray-500 mt-2 w-full flex flex text-white px-4 py-2">
                 <div class="w-4/12 xl:w-2/12 2xl:w-2/12 flex"><span class="w-1/3 text-3xl my-auto">#{{index + 1}}</span><img class="mx-2 w-2/3 xl:w-16 2xl:w-16 xl:h-16 2xl:h-16 h-full" :src="team.logo_path"></div>
                 <div class="w-6/12 xl:w-5/6 2xl:w-5/6 my-auto">
-                  <span class="font-semibold pl-2">{{team['name']}}</span> <span class="font-thin">({{team['points']}} points)</span>
+                    <p class="ml-4"><span class="font-semibold ">{{team['name']}}</span> <span class="font-thin">({{team['points']}} points)</span></p>
                 </div>
 
               </div>

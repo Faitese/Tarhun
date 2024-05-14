@@ -36,7 +36,7 @@ class TeamsController extends Controller
         $teams = array_reverse($teams2);
         foreach ($players as $index => $player) {
             foreach ($teams as $index1 => $team) {
-                if($player['team_id'] == $team['id']) {
+                if($player['teams_id'] == $team['id']) {
                     $teams[$index1]['players'][$index]['id'] = $player['id'];
                     $teams[$index1]['players'][$index]['nickname'] = $player['nickname'];
                     $teams[$index1]['players'][$index]['verified'] = $player['verified'];

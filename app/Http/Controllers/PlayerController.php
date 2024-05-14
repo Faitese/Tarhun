@@ -26,7 +26,7 @@ class PlayerController extends Controller
                 'id' => $player->id,
                 'nickname' => $player->nickname,
                 'fi' => $player->fi,
-                'team_id' => $player->team_id,
+                'teams_id' => $player->teams_id,
                 'verified' => $player->verified,
                 'photo' => asset('storage/' . $player->photo),
 
@@ -34,7 +34,7 @@ class PlayerController extends Controller
         })->toArray();
         foreach ($players as $index => $player) {
             foreach ($teams as $index1 => $team) {
-                if($player['team_id'] == $team['id']) {
+                if($player['teams_id'] == $team['id']) {
                     $players[$index]['team'] = $team['name'];
                 }
             }
@@ -81,7 +81,7 @@ class PlayerController extends Controller
         }
 
         Player::create([
-            'team_id' => Request::input('team_id'),
+            'teams_id' => Request::input('team_id'),
             'nickname' => Request::input('nickname'),
             'fi' => Request::input('fi'),
             'photo' => $image,
@@ -124,7 +124,7 @@ class PlayerController extends Controller
 //        dd($player);
         $player->update([
             'nickname' => Request::input('nickname'),
-            'team_id' => Request::input('team_id'),
+            'teams_id' => Request::input('team_id'),
             'fi' => Request::input('fi'),
 
         ]);
