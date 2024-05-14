@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Player;
-use App\Models\Team;
-//use App\Models\teams;
+//use App\Models\Team;
+use App\Models\teams;
 use Illuminate\Support\Facades\Auth;
 use Request;
 use Illuminate\Support\Facades\Redirect;
