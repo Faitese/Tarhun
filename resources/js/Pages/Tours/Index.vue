@@ -86,7 +86,7 @@ function destroy(id) {
 <!--                            <template v-for="team in tour.teams_logos">-->
 <!--                                {{team}}-->
 <!--                            </template>-->
-                            <div class="flex">
+                            <div class="flex flex-wrap mx-2">
                                 <img v-if="typeof tour.teams_logos != 'undefined'" v-for="team in tour.teams_logos" class="mr-2 mb-2 w-4" :src="team">
                                 <img v-else class="mr-2 mb-2 w-4" src="/storage/No_Image.jpg">
                             </div>
@@ -124,7 +124,7 @@ function destroy(id) {
                             <!--                            <template v-for="team in tour.teams_logos">-->
                             <!--                                {{team}}-->
                             <!--                            </template>-->
-                            <div class="flex">
+                            <div class="flex flex-wrap mx-2">
                                 <img v-if="typeof tour.teams_logos != 'undefined'" v-for="team in tour.teams_logos" class="mr-2 mb-2 w-4" :src="team">
                                 <img v-else class="mr-2 mb-2 w-4" src="/storage/No_Image.jpg">
                             </div>

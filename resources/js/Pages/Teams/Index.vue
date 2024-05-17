@@ -72,7 +72,7 @@ function Pdestroy(id) {
 
                               <div class="xl:h-4/6 h-3/6" v-if="player.photo !== 'storage/'"><a :href="route('index')" ><img class="w-full" :src="player.photo"></a></div>
                               <div class="xl:h-4/6 h-3/6" v-else><a :href="route('index')" ><img class="w-full" src='/storage/photos/noavatar.png'></a></div>
-                              <div class="xl:h-2/6 h-3/6 xl:mt-4 xl:text-lg text-[12px]">{{player.nickname}}<br>
+                              <div class=" xl:h-2/6 h-3/6 xl:mt-4 xl:text-lg text-[12px] w-full text-clip overflow-hidden">{{player.nickname}}<br>
                                 <div class="flex w-full ">
                                   <div class="w-1/3 hidden xl:block"></div>
                                   <div class="w-1/3 flex">
@@ -117,7 +117,7 @@ function Pdestroy(id) {
                     <a :href="route('index')">
                         <div class="h-4/5" v-if="player.photo !== 'storage/'"><img class="w-full" :src="player.photo"></div>
                         <div class="h-4/5" v-else><img class="w-full" src='/storage/photos/noavatar.png'></div>
-                        <div class=" mt-2 xl:text-lg text-[12px]">{{player.nickname}}</div>
+                        <div class="w-full mt-2 xl:text-lg text-[12px]">{{player.nickname}}</div>
                     </a>
                   </template>
                 </div>

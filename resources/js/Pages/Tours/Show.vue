@@ -33,7 +33,7 @@ function destroy(id) {
                         <i class="fa-solid fa-trash"></i>
                     </button>
                 </div>
-                <img class="border-2" :src="tour['large_img']" alt="" srcset="">
+                <img class="border-2 w-full" :src="tour['large_img']" alt="" srcset="">
                 <div class="w-full flex border-b-2 border-l-2 border-r-2">
                     <div class="w-1/3 px-4">
                         <span class="text-gray-500 text-lg">Дата</span><br>
@@ -94,7 +94,7 @@ function destroy(id) {
     <Layout v-else>
         <div class="w-full mt-24  px-[5%] xl:px-[20%] 2xl:px-[20%]">
             <div class="w-full">
-                <img class="border-2" :src="tour['large_img']" alt="" srcset="">
+                <img class="border-2 w-full" :src="tour['large_img']" alt="" srcset="">
                 <div class="w-full flex border-b-2 border-l-2 border-r-2">
                     <div class="w-1/3 px-4">
                         <span class="text-gray-500 text-lg">Дата</span><br>

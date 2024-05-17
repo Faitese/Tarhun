@@ -48,7 +48,7 @@ function destroy(id) {
     <Layout v-else>
         <div class="w-full mt-24 px-[5%] xl:px-[20%] 2xl:px-[20%]">
             <div class="w-full text-center font-semibold text-2xl">{{new1['title']}}</div>
-            <div class="text-lg text-left font-regular">{{new1['content']}}</div>
+            <div v-html=new1.content class="text-lg text-left font-regular"></div>
             <div v-if="typeof new1.img !== '/storage'" class="mt-8 w-full h-full px-[20%]"> <img class="w-full" :src="new1.img"></div>
             <div class="mt-12 w-full text-center"><a :href="route('news.index')" class="text-white p-2 mr-2 bg-gray-600 text-xl rounded-xl"> Вернуться к новостям </a></div>
         </div>
