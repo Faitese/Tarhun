@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('fi')->nullable();
             $table->string('photo')->nullable();
             $table->boolean('verified')->default(0);
+            $table->boolean('isCoach');
             $table->timestamps();
         });
     }

@@ -12,7 +12,9 @@ const form = useForm({
     nickname: props.player.nickname,
     team_id: props.player.teams_id,
     fi: props.player.fi,
-    verified: props.player.verified
+    verified: props.player.verified,
+    isCoach: props.player.isCoach,
+
 })
 function update() {
     // console.log(route('player.update', props.player.id));
@@ -48,6 +50,11 @@ function update() {
                         <label class="text-xl font-semibold">
                             Фамилия и имя игрока (необязательно)
                             <input class="text-white rounded-xl bg-gray-500 border-2 border-gray-600 w-full mt-2 text-left" type="text" v-model="form.fi">
+                        </label>
+                    </div>
+                    <div class = "mt-6 w-full xl:px-[30%] 2xl:px-[30%] px-[15%]">
+                        <label class="text-xl font-semibold">
+                            <input type="checkbox" class="default:ring-0 ml-0.5 appearance-none ring-0 accent-gray-500 dark:accent-gray-500 checked:appearance-auto checked:ring-0 focused:ring-0 indeterminate:ring-0" v-model="form.isCoach"> Тренер
                         </label>
                     </div>
                     <div class="w-full text-center">

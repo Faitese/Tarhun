@@ -5,6 +5,7 @@ const props = defineProps({ authr: Object, teams: Array })
 import { useForm, Link, router } from '@inertiajs/vue3'
 import ALayout from "@/Layouts/ALayout.vue";
 import Layout from "@/Layouts/Layout.vue";
+import Checkbox from "@/Components/Checkbox.vue";
 
 
 const form = useForm({
@@ -12,6 +13,7 @@ const form = useForm({
     team_id: null,
     fi: null,
     photo: null,
+    isCoach: false,
 })
 function store() {
     form.post(route('player.store'))
@@ -31,12 +33,13 @@ const handleFileChange = (event) => {
     <div class="h-4"></div>
     <ALayout v-if="authr != null">
 
-
         <div class="w-full h-full">
             <div class="w-full  px-[5%] xl:px-[20%] 2xl:px-[20%] mt-16">
                 <form @submit.prevent="store" method="post">
                     <div class = "w-full xl:px-[30%] 2xl:px-[30%] text-center px-[15%]">
                         <label class="text-xl font-semibold">
+                            {{form.isCoach}}
+
                             Никнейм игрока
                             <input class="text-white rounded-xl bg-gray-500 border-2 border-gray-600 w-full mt-2 text-left " type="text" v-model="form.nickname">
                         </label>
@@ -59,6 +62,11 @@ const handleFileChange = (event) => {
                             <input class="text-white rounded-xl bg-gray-500 border-2 border-gray-600 w-full mt-2 text-left" type="text" v-model="form.fi">
                         </label>
                     </div>
+                    <div class = "mt-6 w-full xl:px-[30%] 2xl:px-[30%] px-[15%]">
+                        <label class="text-xl font-semibold">
+                            <input type="checkbox" class="default:ring-0 ml-0.5 appearance-none ring-0 accent-gray-500 dark:accent-gray-500 checked:appearance-auto checked:ring-0 focused:ring-0 indeterminate:ring-0" v-model="form.isCoach"> Тренер
+                        </label>
+                    </div>
                     <div class = "mt-6 w-full xl:px-[30%] 2xl:px-[30%] text-center px-[15%]">
                         <label class="text-xl font-semibold">
                             Фото игрока (необязательно)
@@ -66,6 +74,7 @@ const handleFileChange = (event) => {
                             <img class="rounded-full w-48 mx-auto my-4" :src="profilePictureUrl ? profilePictureUrl : '/storage/No_Image.jpg'">
                         </label>
                     </div>
+
                     <div class="w-full text-center">
                         <button class="bg-gray-600 p-3 rounded-xl text-white">
                             Создать
@@ -103,6 +112,11 @@ const handleFileChange = (event) => {
                         <label class="text-xl font-semibold">
                             Фамилия и имя игрока (необязательно)
                             <input class="text-white rounded-xl bg-gray-500 border-2 border-gray-600 w-full mt-2 text-left" type="text" v-model="form.fi">
+                        </label>
+                    </div>
+                    <div class = "mt-6 w-full xl:px-[30%] 2xl:px-[30%] px-[15%]">
+                        <label class="text-xl font-semibold">
+                            <input type="checkbox" class="default:ring-0 ml-0.5 appearance-none ring-0 accent-gray-500 dark:accent-gray-500 checked:appearance-auto checked:ring-0 focused:ring-0 indeterminate:ring-0" v-model="form.isCoach"> Тренер
                         </label>
                     </div>
                     <div class = "mt-6 w-full xl:px-[30%] 2xl:px-[30%] text-center px-[15%]">

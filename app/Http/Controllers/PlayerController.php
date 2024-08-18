@@ -84,6 +84,7 @@ class PlayerController extends Controller
             'teams_id' => Request::input('team_id'),
             'nickname' => Request::input('nickname'),
             'fi' => Request::input('fi'),
+            'isCoach' => Request::input('isCoach'),
             'photo' => $image,
 
         ]);
@@ -104,6 +105,9 @@ class PlayerController extends Controller
     public function edit(Player $player)
     {
         $user = Auth::user();
+        if($player['isCoach'] == 1){
+            $player['isCoach'] = true;
+        }
         $teams = teams::all();
 //        $player = $player->toArray();
 //        dd($player);
@@ -125,6 +129,7 @@ class PlayerController extends Controller
         $player->update([
             'nickname' => Request::input('nickname'),
             'teams_id' => Request::input('team_id'),
+            'isCoach' => Request::input('isCoach'),
             'fi' => Request::input('fi'),
 
         ]);

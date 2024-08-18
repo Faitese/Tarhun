@@ -52,7 +52,18 @@ function Pdestroy(id) {
                   <div v-if="team['verified'] == 1" class="rounded-xl bg-gray-500 mt-2 w-full flex flex text-white px-4 py-2">
                       <div class="w-4/12 xl:w-2/12 2xl:w-2/12 flex"><span class="w-1/3 text-3xl my-auto">#{{index + 1}}</span><img class="mx-2 w-2/3 xl:w-16 2xl:w-16 xl:h-16 2xl:h-16 h-full" :src="team.logo_path"></div>
                       <div class="w-6/12 xl:w-5/6 2xl:w-5/6 my-auto">
-                          <p class="ml-4"><span class="font-semibold ">{{team['name']}}</span> <span class="font-thin">({{team['points']}} points)</span></p>
+                          <p class="ml-4"><span class="font-semibold ">{{team['name']}}</span> <span class="font-thin">({{team['points']}} points)</span><br>
+                          <p v-for="player in team.players">
+                              <p v-if="player['isCoach'] == 1 && player['verified'] == 1" class="font-semibold"><span class="font-semibold ">Тренер:</span> <span class="font-thin">{{player['nickname']}}</span>
+                                  <a :href="route('player.edit', player['id'])" class="mt-2 xl:mr-2 mr-1 p-1  bg-gray-700 rounded-xl text-[0.7rem] xl:text-[1rem]">
+                                      <i class="fa-solid fa-pen"></i>
+                                  </a>
+                                  <button @click="Pdestroy(player['id'])" class="mt-2 xl:mr-2 p-1 bg-red-700 rounded-xl text-[0.7rem] xl:text-[1rem]">
+                                      <i class="fa-solid fa-trash"></i>
+                                  </button>
+                              </p>
+                          </p>
+                          </p>
                       </div>
                       <div class="right-0 w-2/12 xl:w-1/6 2xl:w-1/6 my-auto flex">
                           <a :href="route('edit', team['id'])" class="p-2 mr-2 bg-gray-700 rounded-xl">
@@ -68,7 +79,7 @@ function Pdestroy(id) {
                   <div class="w-full h-full flex text-white text-center">
                       <div class=" flex text-white text-center">
                           <template   v-for="player in team.players">
-                            <div class="w-1/6 mx-1 xl:mx-4 p-2 hover:border-2 rounded-md hover:border-gray-400" v-if="player.verified == 1">
+                            <div class="w-1/6 mx-1 xl:mx-4 p-2 hover:border-2 rounded-md hover:border-gray-400" v-if="player.verified == 1 && player.isCoach != 1">
 
                               <div class="xl:h-4/6 h-3/6" v-if="player.photo !== 'storage/'"><a :href="route('index')" ><img class="w-full" :src="player.photo"></a></div>
                               <div class="xl:h-4/6 h-3/6" v-else><a :href="route('index')" ><img class="w-full" src='/storage/photos/noavatar.png'></a></div>
@@ -105,7 +116,11 @@ function Pdestroy(id) {
               <div v-if="team['verified'] == 1" class="rounded-xl bg-gray-500 mt-2 w-full flex flex text-white px-4 py-2">
                 <div class="w-4/12 xl:w-2/12 2xl:w-2/12 flex"><span class="w-1/3 text-3xl my-auto">#{{index + 1}}</span><img class="mx-2 w-2/3 xl:w-16 2xl:w-16 xl:h-16 2xl:h-16 h-full" :src="team.logo_path"></div>
                 <div class="w-6/12 xl:w-5/6 2xl:w-5/6 my-auto">
-                    <p class="ml-4"><span class="font-semibold ">{{team['name']}}</span> <span class="font-thin">({{team['points']}} points)</span></p>
+                    <p class="ml-4"><span class="font-semibold ">{{team['name']}}</span> <span class="font-thin">({{team['points']}} points)</span>
+                        <p v-for="player in team.players">
+                            <p v-if="player['isCoach'] == 1 && player['verified'] == 1" class="font-semibold"><span class="font-semibold ">Тренер:</span> <span class="font-thin">{{player['nickname']}}</span></p>
+                        </p>
+                    </p>
                 </div>
 
               </div>
@@ -113,7 +128,7 @@ function Pdestroy(id) {
             <template #content>
               <div class="w-full h-full flex text-white text-center">
                 <div class="w-1/6 mx-1 xl:mx-4 p-2 hover:border-2 rounded-md hover:border-gray-400" v-for="player in team.players">
-                  <template v-if="player.verified != 0">
+                  <template v-if="player.verified != 0 && player.isCoach != 1">
                     <a :href="route('index')">
                         <div class="h-4/5" v-if="player.photo !== 'storage/'"><img class="w-full" :src="player.photo"></div>
                         <div class="h-4/5" v-else><img class="w-full" src='/storage/photos/noavatar.png'></div>

@@ -40,6 +40,7 @@ class TeamsController extends Controller
                     $teams[$index1]['players'][$index]['id'] = $player['id'];
                     $teams[$index1]['players'][$index]['nickname'] = $player['nickname'];
                     $teams[$index1]['players'][$index]['verified'] = $player['verified'];
+                    $teams[$index1]['players'][$index]['isCoach'] = $player['isCoach'];
                     $teams[$index1]['players'][$index]['photo'] = "storage/" . $player['photo'];
                 }
             }
